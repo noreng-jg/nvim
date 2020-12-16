@@ -7,10 +7,10 @@ My personal configurations for nvim
 After installing [nvim](https://github.com/neovim/neovim/wiki/Installing-Neovim), go to  `~/.config` folder and  clone the project:
 
 ```
-https://github.com/noreng-jg/nvim
+git clone https://github.com/noreng-jg/nvim
 ```
 
-You'll need to install vim-plug plugin manager, by running:
+You'll need to install [vim-plug](https://github.com/junegunn/vim-plug) plugin manager, by running:
 
 ```bash
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \

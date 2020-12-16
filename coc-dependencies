@@ -1,0 +1,6 @@
+"""for coc-vetur you need to install `npm i -g eslint eslint-plugin-vue -D`
+coc-json
+coc-prettier
+coc-eslint
+coc-vetur
+coc-go

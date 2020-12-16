@@ -11,7 +11,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
-Plug 'henrynewcomer/vim-theme-papaya'
+Plug 'mhartington/oceanic-next'
 " Initialize plugin system
 call plug#end()
 
@@ -49,8 +49,10 @@ set shortmess+=c
 set signcolumn=yes
 set statusline=%f
 
+syntax enable
+colorscheme OceanicNext
+
 ""define theme
-colorscheme papaya
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>

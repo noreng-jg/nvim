@@ -1,12 +1,16 @@
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 Plug 'posva/vim-vue'
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'release','do': 'yarn install --frozen-lockfile'}
 Plug 'preservim/nerdtree' 
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
+Plug 'rhysd/vim-grammarous'
+Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'christoomey/vim-tmux-navigator'
@@ -47,6 +51,7 @@ set hidden
 set updatetime=300
 set shortmess+=c
 set signcolumn=yes
+set nrformats+=alpha
 set statusline=%f
 
 syntax enable
@@ -169,7 +174,7 @@ autocmd Filetype go setlocal ts=4 sw=4 sts=4 expandtab
 """runs command to format golang
 au BufWritePost *.go !gofmt -w %
 
-
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 ""Some refs
 "" run PlugInstall
 """ add plug CocInstall...

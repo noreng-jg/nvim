@@ -1,7 +1,14 @@
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
+" Initialize plugin system
 Plug 'posva/vim-vue'
 Plug 'neoclide/coc.nvim', {'branch': 'release','do': 'yarn install --frozen-lockfile'}
+Plug 'mattn/emmet-vim',
+Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'},
+Plug 'itchyny/lightline.vim',
+Plug 'arcticicestudio/nord-vim',
+Plug 'vim-airline/vim-airline',
+Plug 'vim-airline/vim-airline-themes',
 Plug 'preservim/nerdtree' 
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
@@ -16,7 +23,7 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 Plug 'mhartington/oceanic-next'
-" Initialize plugin system
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 inoremap jk <ESC>
@@ -55,7 +62,56 @@ set nrformats+=alpha
 set statusline=%f
 
 syntax enable
-colorscheme OceanicNext
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+" set Vim-specific sequences for RGB colors 
+colorscheme gruvbox                                                                      
+let g:gruvbox_contrast_dark='medium'
+let g:gruvbox_transparent_bg=1
+
+function! AdaptColorscheme()
+   highlight clear CursorLine
+   highlight Normal ctermbg=none
+   highlight LineNr ctermbg=none
+   highlight Folded ctermbg=none
+   highlight NonText ctermbg=none
+   highlight SpecialKey ctermbg=none
+   highlight VertSplit ctermbg=none
+   highlight SignColumn ctermbg=none
+endfunction
+autocmd ColorScheme * call AdaptColorscheme()
+
+highlight Normal guibg=NONE ctermbg=NONE
+highlight CursorColumn cterm=NONE ctermbg=NONE ctermfg=NONE
+highlight CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE
+highlight CursorLineNr cterm=NONE ctermbg=NONE ctermfg=NONE
+highlight clear LineNr
+highlight clear SignColumn
+highlight clear StatusLine
+" Change Color when entering Insert Mode
+autocmd InsertEnter * set nocursorline
+" Revert Color to default when leaving Insert Mode
+autocmd InsertLeave * set nocursorline
+" set Vim-specific sequences for RGB colors
+"
+"" Transparent bg
+" for transparent background
+" Revert Color to default when leaving Insert Mode
+autocmd InsertLeave * set nocursorline
+
+"" extra settings, uncomment them if necessary :) 
+"set cursorline
+"set noshowmode
+"set nocursorline
+
+" trasparent end
+
+let g:coc_disable_startup_warning=1
 
 ""define theme
 " Use tab for trigger completion with characters ahead and navigate.
@@ -175,6 +231,11 @@ autocmd Filetype go setlocal ts=4 sw=4 sts=4 expandtab
 au BufWritePost *.go !gofmt -w %
 
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+
+""" Emmet prefs
+let g:user_emmet_leader_key='<C-Z>'
+
+"
 ""Some refs
 "" run PlugInstall
 """ add plug CocInstall...

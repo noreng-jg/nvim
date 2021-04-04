@@ -1,4 +1,4 @@
-# My Nvim
+# My neovim
 
 Configurations for neovim.
 
@@ -20,6 +20,15 @@ After that open `nvim`, and install the required dependencies by running:
 
 `:PlugInstall`
 
-You could also install the coc-dependencies as listed in `coc-dependencies` file using:
+You can also install the coc-dependencies as listed in `coc-dependencies` file using:
 
 `:CocInstall "dependency"`
+
+## Observations
+* You might also want to install `yarn` which will help to customize better the coc-extensions.
+* For vue development check the [vetur](https://vuejs.github.io/vetur/guide/setup.html) setup.
+* In order to use `Bracey` you will need to install a python3 neovim package:
+```bash
+pip3 install --user neovim
+```
+

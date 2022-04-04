@@ -4,9 +4,10 @@ call plug#begin('~/.vim/plugged')
 Plug 'posva/vim-vue'
 Plug 'neoclide/coc.nvim', {'branch': 'release','do': 'yarn install --frozen-lockfile'}
 Plug 'mattn/emmet-vim',
-Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'},
 Plug 'itchyny/lightline.vim',
+Plug 'github/copilot.vim',
 Plug 'arcticicestudio/nord-vim',
+Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'},
 Plug 'vim-airline/vim-airline',
 Plug 'vim-airline/vim-airline-themes',
 Plug 'preservim/nerdtree' 
@@ -234,6 +235,7 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 
 """ Emmet prefs
 let g:user_emmet_leader_key='<C-Z>'
+let g:bracey_browser_command='firefox'
 
 "
 ""Some refs
@@ -242,3 +244,7 @@ let g:user_emmet_leader_key='<C-Z>'
 """https://github.com/junegunn/vim-plug
 ""https://github.com/neoclide/coc-tsserver
 "" (update config for npm: https://github.com/neoclide/coc-tsserver/issues/44#issuecomment-615604591)
+
+""Bracey issues
+""https://github.com/turbio/bracey.vim/issues/47
+""
